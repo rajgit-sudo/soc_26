@@ -1,0 +1,12 @@
+{
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "arguments": ["--header-insertion=never"],
+      },
+    },
+  },
+}

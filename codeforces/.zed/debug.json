@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Debug C++",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "program": "$ZED_DIRNAME/a.out",
+    "cwd": "$ZED_DIRNAME",
+    "stopOnEntry": true,
+  },
+]

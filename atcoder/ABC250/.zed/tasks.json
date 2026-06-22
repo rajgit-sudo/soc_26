@@ -1,0 +1,14 @@
+[
+    {
+        "label": "1. Judge: Run All Tests",
+        "command": "cd '${ZED_DIRNAME}' && ./run.sh",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false
+    },
+    {
+        "label": "2. Judge: Submit to CSES",
+        "command": "cd '${ZED_DIRNAME}' && ./submit.sh",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false
+    }
+]
