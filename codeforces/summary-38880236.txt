@@ -1,4 +1,0 @@
-1: Alkhalaf M, Yu P, Yin M, Deng C. Applying generative AI with retrieval
-augmented generation to summarize and extract key clinical information from
-electronic health records. J Biomed Inform. 2024 Aug;156:104662. doi:
-10.1016/j.jbi.2024.104662. Epub 2024 Jun 14. PMID: 38880236.
