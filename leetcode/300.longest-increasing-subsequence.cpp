@@ -1,0 +1,20 @@
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+using ll=long long;
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> tails;
+        for(int x: nums){
+            auto it = lower_bound(tails.begin(), tails.end(), x);
+            if(it==tails.end())
+                tails.push_back(x);
+            else
+                *it = x;
+        }
+        return int(tails.size());
+    }
+};

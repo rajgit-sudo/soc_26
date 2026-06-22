@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+#include <unordered_map>
+using namespace std;
+using ll=long long;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+// struct ListNode {
+// 	int val;
+// 	ListNode* next;
+
+// 	ListNode() : val(0), next(nullptr) {}
+// 	ListNode(int x) : val(x), next(nullptr) {}
+// 	ListNode(int x, ListNode* next) : val(x), next(next) {}
+// };
+
+class Solution {
+public:
+    ListNode* removeZeroSumSublists(ListNode* head) {
+        ListNode* dummy = new ListNode();
+        dummy->next = head;
+        ListNode* curr = dummy;
+        unordered_map<int, ListNode*> map;
+        int sum = 0;
+        while(curr!=nullptr){
+            sum += curr->val;
+            map[sum] = curr;
+            curr = curr->next;
+        }
+
+        curr = dummy;
+        sum=0;
+        while(curr!=nullptr){
+            sum += curr->val;
+            curr->next = map[sum]->next;
+            curr = curr->next;
+        }
+        return dummy->next;
+    }
+};
+
+/*
+ * 1171. Remove Zero Sum Consecutive Nodes from Linked List
+ * Difficulty: Medium
+ * https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+ *
+ * ──────────────────────────────────────────────────
+ *
+ * Given the head of a linked list, we repeatedly delete consecutive
+ * sequences of nodes that sum to 0 until there are no such sequences.
+ *
+ *
+ *
+ * After doing so, return the head of the final linked list.  You may
+ * return any such answer.
+ *
+ *
+ *
+ *
+ *
+ * (Note that in the examples below, all sequences are serializations of
+ * ListNode objects.)
+ *
+ * Example 1:
+ *
+ * Input: head = [1,2,-3,3,1]
+ * Output: [3,1]
+ * Note: The answer [1,2,1] would also be accepted.
+ *
+ * Example 2:
+ *
+ * Input: head = [1,2,3,-3,4]
+ * Output: [1,2,4]
+ *
+ * Example 3:
+ *
+ * Input: head = [1,2,3,-3,-2]
+ * Output: [1]
+ *
+ *
+ *
+ * Constraints:
+ *
+ * 	• The given linked list will contain between 1 and 1000 nodes.
+ *
+ * 	• Each node in the linked list has -1000 <= node.val <= 1000.
+*/
